@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freemasonry Lodges | Ancient Craft • Modern Wisdom</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fcf9f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3 {
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #1a2c3e;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #1a2c3e;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: #d4af37;
+            color: #1a2c3e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 80vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, #1a2c3e 0%, #2c3e50 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '⚜️';
+            font-size: 300px;
+            position: absolute;
+            right: -50px;
+            bottom: -50px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+            background: #d4af37;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            color: #1a2c3e;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #1a2c3e;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background: white;
+        }
+
+        .section-dark {
+            background: #f5f0e6;
+        }
+
+        /* ===== FEATURES GRID ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a2c3e;
+        }
+
+        /* ===== VALUES ===== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .value-item h4 {
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        /* ===== DEGREES ===== */
+        .degrees-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .degree-card {
+            background: #1a2c3e;
+            color: white;
+            padding: 40px 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .degree-card:hover {
+            transform: scale(1.05);
+        }
+
+        .degree-number {
+            font-size: 1rem;
+            color: #d4af37;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .degree-title {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        /* ===== STATS ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: #1a2c3e;
+        }
+
+        /* ===== SYMBOLS ===== */
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .symbol-item {
+            text-align: center;
+        }
+
+        .symbol-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: #1a2c3e;
+            color: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            border: 3px solid #d4af37;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            background: #1a2c3e;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #d4af37;
+        }
+
+        .contact-detail {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: #d4af37;
+            width: 50px;
+        }
+
+        .contact-detail a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+
+        .contact-detail a:hover {
+            color: #d4af37;
+        }
+
+        .cta-box {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #d4af37;
+        }
+
+        .cta-box h4 {
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        /* ===== FIXED WHATSAPP BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #20b859;
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Tooltip on hover */
+        .whatsapp-float::after {
+            content: "Chat with us";
+            position: absolute;
+            right: 80px;
+            background: #1a2c3e;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            pointer-events: none;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .whatsapp-float:hover::after {
+            opacity: 1;
+            visibility: visible;
+            right: 90px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f1a24;
+            color: #b0c4de;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.95rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .values-grid,
+            .degrees-grid,
+            .symbols-grid,
+            .contact-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float::after {
+                display: none; /* Hide tooltip on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 500px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FIXED WHATSAPP BUTTON -->
+    <a href="https://wa.me/256761863676?text=Hello%21%20I%27m%20interested%20in%20learning%20more%20about%20Freemasonry." 
+       class="whatsapp-float" 
+       target="_blank" 
+       title="Chat with us on WhatsApp">
+        💬
+    </a>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">⚜️</div>
+                <div class="logo-text">
+                    <h1>Freemasonry Lodges</h1>
+                    <p>Ancient Craft • Modern Wisdom</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#values">Values</a></li>
+                    <li><a href="#degrees">Degrees</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <span class="hero-badge">EST. 1717</span>
+                <h2>What is Freemasonry?</h2>
+                <p>One of the oldest fraternal organizations in the world, uniting men of good character who share a belief in the fatherhood of God and the brotherhood of mankind.</p>
+                <div>
+                    <a href="#about" class="btn">Discover More</a>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section section-light">
+            <div class="container">
+                <h2>Understanding Freemasonry</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">Freemasonry offers a system or blueprint for the good man to further improve his character and actions through its system of degrees, symbols, and fellowship opportunities.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏛️</div>
+                        <h3>When did it start?</h3>
+                        <p>Modern Freemasonry was established in England in 1717, with roots tracing back to medieval stonemason guilds.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Worldwide Presence</h3>
+                        <p>6 million Freemasons worldwide, with 1.1 million in North America. Over 60,000 Masons in Ohio alone.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚜️</div>
+                        <h3>Not a Religion</h3>
+                        <p>Freemasonry does not replace faith, family or occupation. It reminds every Mason of his duty to the Supreme Architect.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALUES SECTION -->
+        <section id="values" class="section section-dark">
+            <div class="container">
+                <h2>Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>Brotherly Love</h4>
+                        <p>Caring for Each Other and Our Communities</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Relief</h4>
+                        <p>Help and Assist Those in Distress</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Truth</h4>
+                        <p>Using Knowledge to Improve Ourselves, Our Families and Our Communities</p>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 1.2rem; margin-top: 30px;">"Meet upon the level of equality, act by the plumb of uprightness, and part upon the square of virtue."</p>
+            </div>
+        </section>
+
+        <!-- STATS SECTION -->
+        <section class="section section-light">
+            <div class="container">
+                <h2>Freemasonry by Numbers</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">6M+</div>
+                        <div class="stat-label">Freemasons Worldwide</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1717</div>
+                        <div class="stat-label">Founded in England</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEGREES SECTION -->
+        <section id="degrees" class="section section-dark">
+            <div class="container">
+                <h2>The Three Degrees</h2>
+                <p style="text-align: center; margin-bottom: 40px;">The journey through Freemasonry is marked by three ceremonial stages representing youth, manhood, and age.</p>
+                
+                <div class="degrees-grid">
+                    <div class="degree-card">
+                        <div class="degree-number">1ST DEGREE</div>
+                        <div class="degree-title">Entered Apprentice</div>
+                        <p>The first step as a Freemason. A candidate's initial experience with the ceremonies of the Fraternity.</p>
+                    </div>
+                    <div class="degree-card">
+                        <div class="degree-number">2ND DEGREE</div>
+                        <div class="degree-title">Fellow Craft</div>
+                        <p>Progress from apprentice to journeyman, learning more of the symbolism and philosophy.</p>
+                    </div>
+                    <div class="degree-card">
+                        <div class="degree-number">3RD DEGREE</div>
+                        <div class="degree-title">Master Mason</div>
+                        <p>Full membership with all the rights and responsibilities of the Fraternity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYMBOLS SECTION -->
+        <section class="section section-light">
+            <div class="container">
+                <h2>Masonic Symbols</h2>
+                <div class="symbols-grid">
+                    <div class="symbol-item">
+                        <div class="symbol-image">⌛</div>
+                        <h3>Square & Compasses</h3>
+                        <p>Morality, honesty and fair dealings with others</p>
+                    </div>
+                    <div class="symbol-item">
+                        <div class="symbol-image">🪨</div>
+                        <h3>The Masonic Apron</h3>
+                        <p>Emblem of innocence and badge of a Mason</p>
+                    </div>
+                    <div class="symbol-item">
+                        <div class="symbol-image">🏛️</div>
+                        <h3>King Solomon's Temple</h3>
+                        <p>The foundation of lodge traditions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Begin Your Journey</h3>
+                        <div class="contact-detail">
+                            <span class="contact-icon">📞</span>
+                            <a href="tel:+256761863676">+256761863676</a>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-icon">✉️</span>
+                            <a href="mailto:contact@freemasonrylodges.com">contact@freemasonrylodges.com</a>
+                        </div>
+                        <p style="margin-top: 30px; font-size: 1.1rem;">Whether you're interested in learning more about Freemasonry, looking for a lodge near you, or have general questions, we're here to help.</p>
+                    </div>
+                    <div class="cta-box">
+                        <h4>Ready to Learn More?</h4>
+                        <p style="margin-bottom: 25px;">Interested in becoming a Mason? Contact us to learn about the next steps, find a local lodge, and begin your path toward becoming a Master Mason.</p>
+                        <a href="mailto:contact@freemasonrylodges.com" class="btn" style="display: inline-block;">Email Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Freemasonry Lodges. All rights reserved.</p>
+            <p style="margin-top: 10px;">Freemasonry unites men of good character who believe in the fatherhood of God and the brotherhood of mankind.</p>
+            <p style="margin-top: 20px; font-size: 0.85rem;">Website design inspired by centuries of tradition.</p>
+        </div>
+    </footer>
+</body>
+</html>
